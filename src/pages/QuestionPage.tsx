@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import SuccessConfetti from '@/components/SuccessConfetti';
-import { Confetti } from 'lucide-react';
+import { PartyPopper } from 'lucide-react';
 
 const QuestionPage: React.FC = () => {
   const { codeId } = useParams<{ codeId: string }>();
@@ -103,7 +103,7 @@ const QuestionPage: React.FC = () => {
               <SuccessConfetti isActive={true} />
               <div className="text-center space-y-4">
                 <div className="flex justify-center">
-                  <Confetti className="w-16 h-16 text-primary animate-pulse" />
+                  <PartyPopper className="w-16 h-16 text-primary animate-pulse" />
                 </div>
                 <h3 className="text-xl font-bold">Congratulations!</h3>
                 <p>You've answered correctly.</p>
