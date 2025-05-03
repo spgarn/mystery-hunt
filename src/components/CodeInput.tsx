@@ -51,7 +51,7 @@ const CodeInput: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md">
-      <div className="relative flex h-10">
+      <div className="relative flex">
         <Input
           ref={inputRef}
           type="text"
@@ -71,7 +71,7 @@ const CodeInput: React.FC = () => {
         />
         <Button 
           type="submit"
-          className="absolute right-0 top-0 h-full px-5 bg-primary/80 hover:bg-primary text-primary-foreground"
+          className="absolute right-0 inset-y-0 px-5 bg-primary/80 hover:bg-primary text-primary-foreground"
           disabled={isDisabled}
         >
           Submit
