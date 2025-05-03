@@ -9,9 +9,9 @@ export interface SecretCode {
 
 export const secretCodes: SecretCode[] = [
   {
-    id: "enigma",
-    question: "What was the name of the German encryption device broken by Alan Turing?",
-    answer: "enigma",
+    id: "guinness",
+    question: "Hur många liter finns i tunnan?",
+    answer: "30",
     successCode: "TURING-1954",
   },
   {
