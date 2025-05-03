@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -84,11 +85,33 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'shake': {
+					'0%, 100%': { transform: 'translateX(0)' },
+					'10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-4px)' },
+					'20%, 40%, 60%, 80%': { transform: 'translateX(4px)' }
+				},
+				'glow': {
+					'0%, 100%': { 
+						boxShadow: '0 0 5px 2px rgba(79, 70, 229, 0.4)',
+						borderColor: 'rgba(79, 70, 229, 0.7)'
+					},
+					'50%': { 
+						boxShadow: '0 0 15px 5px rgba(79, 70, 229, 0.6)', 
+						borderColor: 'rgba(79, 70, 229, 1)'
+					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(8px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+				'glow': 'glow 2s ease-in-out infinite',
+				'fade-in': 'fade-in 0.6s ease-out'
 			}
 		}
 	},
