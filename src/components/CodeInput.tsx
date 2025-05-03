@@ -51,21 +51,27 @@ const CodeInput: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md">
-      <div className="relative">
+      <div className="relative flex h-10">
         <Input
           ref={inputRef}
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          className={`w-full bg-secondary/50 border-2 border-primary/30 text-foreground glow-input text-center text-lg py-6 ${
+          className={`w-full bg-secondary/50 border-2 border-primary/30 text-foreground glow-input text-center text-lg py-6 pr-[4.5rem] ${
             isShaking ? 'animate-shake' : ''
           }`}
           placeholder="Enter code..."
           disabled={isDisabled}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              handleSubmit(e);
+            }
+          }}
         />
         <Button 
           type="submit"
-          className="absolute right-0 top-0 bottom-0 px-5 bg-primary/80 hover:bg-primary text-primary-foreground"
+          className="absolute right-0 top-0 h-full px-5 bg-primary/80 hover:bg-primary text-primary-foreground"
           disabled={isDisabled}
         >
           Submit
