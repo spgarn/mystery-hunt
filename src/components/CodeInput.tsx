@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAllSecretCodeIds } from '../data/secretCodes';
-import { isCodeUsed } from '../utils/localStorage';
+import {  isCodeUsed } from '../utils/localStorage';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 
@@ -15,10 +15,12 @@ const CodeInput: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const normalizedInput = inputValue.trim().toLowerCase();
+
+    const normalizedInput = inputValue.replace(/ /g, "").trim().toLowerCase();
     const allCodes = getAllSecretCodeIds();
-    
+
+
+
     if (allCodes.includes(normalizedInput)) {
       // Valid code found
       if (isCodeUsed(normalizedInput)) {
@@ -49,6 +51,9 @@ const CodeInput: React.FC = () => {
     }
   }, []);
 
+
+
+
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md">
       <div className="relative flex">
@@ -57,9 +62,8 @@ const CodeInput: React.FC = () => {
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          className={`w-full bg-secondary/50 border-2 border-primary/30 text-foreground glow-input text-center text-lg py-6 pr-[4.5rem] ${
-            isShaking ? 'animate-shake' : ''
-          }`}
+          className={`w-full bg-secondary/50 border-2 border-primary/30 text-foreground glow-input text-center text-lg py-6 pr-[4.5rem] ${isShaking ? 'animate-shake' : ''
+            }`}
           placeholder="Enter code..."
           disabled={isDisabled}
           onKeyDown={(e) => {
@@ -69,7 +73,8 @@ const CodeInput: React.FC = () => {
             }
           }}
         />
-        <Button 
+        <Button
+          style={{ height: "auto" }}
           type="submit"
           className="absolute right-0 inset-y-0 px-5 bg-primary/80 hover:bg-primary text-primary-foreground"
           disabled={isDisabled}
